@@ -1,1 +1,43 @@
-Hello World
+
+<head>
+  <title>Minimal PWA</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="icon" href="/e.png" type="image/png" />
+</head>
+
+<body>
+  <div class="revision">Revision 9</div>
+  <img src="pwa-fonts.png">
+  <div class="main-text">
+    Minimal PWA, open Console for more!
+  </div>
+  <div class="network-message">
+    Network:
+    <span id="network-status" class="">Good</span>
+  </div>
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js', {scope: '/'})
+          .then(function (registration) {
+            // register success
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(function (err) {
+              // register failed
+              console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+
+    fetch('./data.json')
+
+    var statusEl = document.querySelector('#network-status')
+    if (!navigator.onLine) {
+      statusEl.classList = ['is-offline']
+      statusEl.innerText = 'Offline'
+    }
+  </script>
+</body>
