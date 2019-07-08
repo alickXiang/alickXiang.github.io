@@ -17,6 +17,9 @@
     Network:
     <span id="network-status" class="">Good</span>
   </div>
+  <button id="post">
+    test postMessage
+  </button>
   <script type="text/javascript">
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
@@ -39,5 +42,9 @@
       statusEl.classList = ['is-offline']
       statusEl.innerText = 'Offline'
     }
+    let post = document.querySelector('#post');
+    post.addEventListener('click', () => {
+      window.top.postMessage(JSON.stringify({ cmd: 'navigate', data: 'http://www.baidu.com' }), '*');
+    })
   </script>
 </body>
