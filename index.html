@@ -44,7 +44,7 @@
     }
     let post = document.querySelector('#post');
     post.addEventListener('click', () => {
-      window.top.postMessage(JSON.stringify({ cmd: 'navigate', data: 'http://www.baidu.com' }), '*');
+      window.top.postMessage(JSON.stringify({ cmd: 'navigate', data: 'http://www.baidu.com' }), 'https://mall.uat.shopee.tw');
     })
   </script>
 </body>
